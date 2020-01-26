@@ -9,13 +9,15 @@ class TasksProvider with ChangeNotifier {
   // Singleton (factory)
   final _logger = SimpleLogger();
 
-  final TaskDatasourceImpl dataSource = TaskDatasourceImpl();
+  final TaskDatasourceImpl dataSource;
 
   List<TaskEntityImpl> _taskList;
 
   bool _isLoading = false;
 
   String addTaskInput;
+
+  TasksProvider(this.dataSource);
 
   bool get isLoading => _isLoading;
 

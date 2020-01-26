@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:simple_todo/features/tasks/data/datasource/taskDatasourceImpl.dart';
+import 'package:simple_todo/features/tasks/presentation/providers/tasks.provider.dart';
 
 /// Arquivo responsavel pela injeçao de dependencias
 
@@ -15,7 +16,7 @@ void initServiceLocator() {
 //responsavel pela injecao dos features
 void _initModules() {
   sl.registerFactory(() => TaskDatasourceImpl());
-//  sl.registerLazySingleton(() => TasksProvider(sl<TaskDatasourceImpl>()));
+  sl.registerLazySingleton(() => TasksProvider(sl<TaskDatasourceImpl>()));
 }
 
 //responsavel pela injecao do core

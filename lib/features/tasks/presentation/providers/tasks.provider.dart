@@ -67,6 +67,7 @@ class TasksProvider with ChangeNotifier {
   Future<void> deleteTask(TaskEntityImpl entity) async {
     _logger.info("Delete Task : ${entity.name}");
     await dataSource.delete(entity);
+    _isListActionCheckBox = !_isListActionCheckBox;
     await refreshTaskList();
   }
 }

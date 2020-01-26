@@ -16,7 +16,7 @@ class Header extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            'MinimaList',
+            'MinimaLista',
             style: TextStyle(
               color: Colors.white,
               fontSize: 30.0,
@@ -24,7 +24,7 @@ class Header extends StatelessWidget {
             ),
           ),
           Text(
-            '${Provider.of<TasksProvider>(context).getTotalOfTasks()} Tasks',
+            '${Provider.of<TasksProvider>(context).getTotalOfTasks()} Itens',
             style: const TextStyle(
               color: Colors.white,
               fontSize: 18,

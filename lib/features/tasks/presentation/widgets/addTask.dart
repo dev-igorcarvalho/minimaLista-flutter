@@ -34,7 +34,7 @@ class AddTask extends StatelessWidget {
               TextField(
                 decoration: InputDecoration(
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red),
+                    borderSide: BorderSide(color: mainColor),
                   ),
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: mainColor)),
@@ -58,7 +58,7 @@ class AddTask extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 child: Text(
-                  'Add',
+                  'Adicionar',
                   style: TextStyle(
                     fontSize: 20,
                     color: mainColor,

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_todo/features/tasks/presentation/providers/tasks.provider.dart';
@@ -16,7 +17,6 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   void initState() {
     super.initState();
-
     Provider.of<TasksProvider>(context, listen: false).refreshTaskList();
   }
 
@@ -25,7 +25,11 @@ class _TasksScreenState extends State<TasksScreen> {
     return Scaffold(
       backgroundColor: mainColor,
       floatingActionButton: FloatingActionButton(
-          backgroundColor: mainColor,
+          backgroundColor: Colors.white.withOpacity(0.85),
+          foregroundColor: mainColor,
+          shape: RoundedRectangleBorder(
+              side: BorderSide(color: mainColor),
+              borderRadius: BorderRadius.circular(30.0)),
           onPressed: () {
             showModalBottomSheet(
                 context: context,

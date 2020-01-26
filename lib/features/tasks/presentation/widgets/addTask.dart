@@ -20,7 +20,8 @@ class AddTask extends StatelessWidget {
       child: Container(
         color: const Color(0xff757575),
         child: Container(
-          padding: const EdgeInsets.all(20.0),
+          padding:
+              const EdgeInsets.only(left: 40, top: 20, right: 50, bottom: 10),
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -29,25 +30,26 @@ class AddTask extends StatelessWidget {
             ),
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Text(
-                'Add Task',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 30.0,
-                  color: mainColor,
-                ),
-              ),
               TextField(
+                decoration: InputDecoration(
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: mainColor)),
+                ),
                 autofocus: true,
                 textAlign: TextAlign.center,
                 onChanged: (newText) {
                   _inputValue = newText;
                 },
               ),
+              const SizedBox(height: 20),
               FlatButton(
-                color: mainColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50.0)),
+                color: Colors.white,
                 onPressed: () {
                   if (_inputValue != null) {
                     Provider.of<TasksProvider>(context, listen: false)
@@ -55,10 +57,11 @@ class AddTask extends StatelessWidget {
                   }
                   Navigator.pop(context);
                 },
-                child: const Text(
+                child: Text(
                   'Add',
                   style: TextStyle(
-                    color: Colors.white,
+                    fontSize: 20,
+                    color: mainColor,
                   ),
                 ),
               ),

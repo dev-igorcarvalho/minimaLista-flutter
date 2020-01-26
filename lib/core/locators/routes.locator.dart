@@ -1,5 +1,5 @@
+import 'package:MinimaList/features/tasks/presentation/screens/tasks.screen.dart';
 import 'package:flutter/widgets.dart';
-import 'package:simple_todo/features/tasks/presentation/screens/tasks.screen.dart';
 
 enum ApiEnvironment { DEV, PROD }
 

@@ -1,6 +1,6 @@
+import 'package:MinimaList/features/tasks/data/datasource/taskDatasourceImpl.dart';
+import 'package:MinimaList/features/tasks/presentation/providers/tasks.provider.dart';
 import 'package:get_it/get_it.dart';
-import 'package:simple_todo/features/tasks/data/datasource/taskDatasourceImpl.dart';
-import 'package:simple_todo/features/tasks/presentation/providers/tasks.provider.dart';
 
 /// Arquivo responsavel pela injeçao de dependencias
 

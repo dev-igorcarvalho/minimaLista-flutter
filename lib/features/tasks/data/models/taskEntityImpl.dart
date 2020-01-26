@@ -1,6 +1,6 @@
+import 'package:MinimaList/features/tasks/domain/abstract_entities/task.entity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:simple_todo/features/tasks/domain/abstract_entities/task.entity.dart';
 
 part 'taskEntityImpl.g.dart';
 

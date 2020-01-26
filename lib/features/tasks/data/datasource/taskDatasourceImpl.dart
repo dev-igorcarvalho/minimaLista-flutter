@@ -1,7 +1,7 @@
+import 'package:MinimaList/core/generics/generic.datasource.dart';
+import 'package:MinimaList/core/generics/generic.snapshotFecher.dart';
+import 'package:MinimaList/features/tasks/data/models/taskEntityImpl.dart';
 import 'package:sembast/sembast.dart';
-import 'package:simple_todo/core/generics/generic.datasource.dart';
-import 'package:simple_todo/core/generics/generic.snapshotFecher.dart';
-import 'package:simple_todo/features/tasks/data/models/taskEntityImpl.dart';
 
 class TaskDatasourceImpl extends GenericSembastSource<TaskEntityImpl>
     implements SnapshotFetcher {

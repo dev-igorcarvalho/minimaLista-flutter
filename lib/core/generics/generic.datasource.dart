@@ -1,6 +1,6 @@
+import 'package:MinimaList/core/generics/generic.entity.dart';
+import 'package:MinimaList/core/locators/sembastDatabase.locator.dart';
 import 'package:sembast/sembast.dart';
-import 'package:simple_todo/core/generics/generic.entity.dart';
-import 'package:simple_todo/core/locators/sembastDatabase.locator.dart';
 
 class GenericSembastSource<T extends GenericEntity> {
   GenericSembastSource(this._entityStore);

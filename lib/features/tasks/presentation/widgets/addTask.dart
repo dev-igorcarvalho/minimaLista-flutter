@@ -1,8 +1,8 @@
+import 'package:MinimaList/features/tasks/data/models/taskEntityImpl.dart';
+import 'package:MinimaList/features/tasks/presentation/providers/tasks.provider.dart';
+import 'package:MinimaList/features/tasks/presentation/screens/tasks.style.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:simple_todo/features/tasks/data/models/taskEntityImpl.dart';
-import 'package:simple_todo/features/tasks/presentation/providers/tasks.provider.dart';
-import 'package:simple_todo/features/tasks/presentation/screens/tasks.style.dart';
 
 class AddTask extends StatelessWidget {
   const AddTask({

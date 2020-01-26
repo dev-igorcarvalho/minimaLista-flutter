@@ -1,9 +1,9 @@
 import 'dart:collection';
 
+import 'package:MinimaList/features/tasks/data/datasource/taskDatasourceImpl.dart';
+import 'package:MinimaList/features/tasks/data/models/taskEntityImpl.dart';
 import 'package:flutter/foundation.dart';
 import 'package:simple_logger/simple_logger.dart';
-import 'package:simple_todo/features/tasks/data/datasource/taskDatasourceImpl.dart';
-import 'package:simple_todo/features/tasks/data/models/taskEntityImpl.dart';
 
 class TasksProvider with ChangeNotifier {
   // Singleton (factory)

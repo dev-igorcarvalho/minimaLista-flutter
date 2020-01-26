@@ -1,8 +1,8 @@
+import 'package:MinimaList/features/tasks/presentation/providers/tasks.provider.dart';
+import 'package:MinimaList/features/tasks/presentation/widgets/loading.dart';
+import 'package:MinimaList/features/tasks/presentation/widgets/taskList.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:simple_todo/features/tasks/presentation/providers/tasks.provider.dart';
-import 'package:simple_todo/features/tasks/presentation/widgets/loading.dart';
-import 'package:simple_todo/features/tasks/presentation/widgets/taskList.dart';
 
 class Body extends StatelessWidget {
   const Body({

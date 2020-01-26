@@ -1,11 +1,11 @@
+import 'package:MinimaList/features/tasks/presentation/providers/tasks.provider.dart';
+import 'package:MinimaList/features/tasks/presentation/screens/tasks.style.dart';
+import 'package:MinimaList/features/tasks/presentation/widgets/addTask.dart';
+import 'package:MinimaList/features/tasks/presentation/widgets/body.dart';
+import 'package:MinimaList/features/tasks/presentation/widgets/header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:simple_todo/features/tasks/presentation/providers/tasks.provider.dart';
-import 'package:simple_todo/features/tasks/presentation/screens/tasks.style.dart';
-import 'package:simple_todo/features/tasks/presentation/widgets/addTask.dart';
-import 'package:simple_todo/features/tasks/presentation/widgets/body.dart';
-import 'package:simple_todo/features/tasks/presentation/widgets/header.dart';
 
 class TasksScreen extends StatefulWidget {
   static const ROUTE_NAME = "/";

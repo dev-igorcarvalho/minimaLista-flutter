@@ -13,20 +13,32 @@ class TaskItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onLongPress: () {
-        Provider.of<TasksProvider>(context).deleteTask(task);
+        Provider.of<TasksProvider>(context, listen: false).changeListAction();
       },
       title: Text(
         task.name,
         style: TextStyle(
             decoration: task.completed ? TextDecoration.lineThrough : null),
       ),
-      trailing: Checkbox(
-        activeColor: mainColor,
-        value: task.completed,
-        onChanged: (value) {
-          Provider.of<TasksProvider>(context, listen: false).completeTask(task);
-        },
-      ),
+      trailing: Provider.of<TasksProvider>(context, listen: false)
+              .isListActionCheckBox
+          ? Checkbox(
+              activeColor: mainColor,
+              value: task.completed,
+              onChanged: (value) {
+                Provider.of<TasksProvider>(context, listen: false)
+                    .completeTask(task);
+              },
+            )
+          : GestureDetector(
+              onTap: () {
+                Provider.of<TasksProvider>(context, listen: false)
+                    .deleteTask(task);
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(right: 12.5),
+                child: Icon(Icons.delete),
+              )),
     );
   }
 }

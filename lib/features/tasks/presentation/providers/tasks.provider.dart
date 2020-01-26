@@ -15,11 +15,20 @@ class TasksProvider with ChangeNotifier {
 
   bool _isLoading = false;
 
+  bool _isListActionCheckBox = true;
+
   String addTaskInput;
 
   TasksProvider(this.dataSource);
 
   bool get isLoading => _isLoading;
+
+  bool get isListActionCheckBox => _isListActionCheckBox;
+
+  void changeListAction() {
+    _isListActionCheckBox = !_isListActionCheckBox;
+    notifyListeners();
+  }
 
   /// Retorna copia imutavel da lista por segurança
   List<TaskEntityImpl> get taskList {

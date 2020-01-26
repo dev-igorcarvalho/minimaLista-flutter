@@ -50,7 +50,7 @@ class AddTask extends StatelessWidget {
                 color: mainColor,
                 onPressed: () {
                   if (_inputValue != null) {
-                    Provider.of<TasksProvider>(context)
+                    Provider.of<TasksProvider>(context, listen: false)
                         .addTask(TaskEntityImpl(name: _inputValue));
                   }
                   Navigator.pop(context);

@@ -24,7 +24,7 @@ class TaskItem extends StatelessWidget {
         activeColor: mainColor,
         value: task.completed,
         onChanged: (value) {
-          Provider.of<TasksProvider>(context).completeTask(task);
+          Provider.of<TasksProvider>(context, listen: false).completeTask(task);
         },
       ),
     );

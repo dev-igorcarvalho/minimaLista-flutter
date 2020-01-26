@@ -6,8 +6,11 @@ import 'package:simple_todo/features/tasks/presentation/providers/tasks.provider
 class ApplicationContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => TasksProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<TasksProvider>(
+            create: (context) => TasksProvider())
+      ],
       child: MaterialApp(
         initialRoute: "/",
         routes: RoutesLocator.routes,

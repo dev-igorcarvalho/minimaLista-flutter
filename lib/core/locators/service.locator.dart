@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:simple_todo/features/tasks/data/datasource/taskDatasourceImpl.dart';
 
 /// Arquivo responsavel pela injeçao de dependencias
 
@@ -6,13 +7,16 @@ import 'package:get_it/get_it.dart';
 final GetIt sl = GetIt.instance;
 
 //metodo que sera chamado no main do app para iniciar o processo de injecao de dependencias
-void init() {
+void initServiceLocator() {
   _initModules();
   _initCore();
 }
 
 //responsavel pela injecao dos features
-void _initModules() {}
+void _initModules() {
+  sl.registerFactory(() => TaskDatasourceImpl());
+//  sl.registerLazySingleton(() => TasksProvider(sl<TaskDatasourceImpl>()));
+}
 
 //responsavel pela injecao do core
 void _initCore() {}

@@ -9,7 +9,7 @@ class TasksProvider with ChangeNotifier {
   // Singleton (factory)
   final _logger = SimpleLogger();
 
-  TaskDatasourceImpl dataSource = TaskDatasourceImpl();
+  final TaskDatasourceImpl dataSource = TaskDatasourceImpl();
 
   List<TaskEntityImpl> _taskList;
 

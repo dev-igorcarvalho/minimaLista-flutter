@@ -1,6 +1,5 @@
 import 'package:MinimaList/features/tasks/presentation/providers/tasks.provider.dart';
 import 'package:MinimaList/features/tasks/presentation/screens/tasks.style.dart';
-import 'package:MinimaList/features/tasks/presentation/widgets/addTask.dart';
 import 'package:MinimaList/features/tasks/presentation/widgets/body.dart';
 import 'package:MinimaList/features/tasks/presentation/widgets/header.dart';
 import 'package:flutter/cupertino.dart';
@@ -24,19 +23,6 @@ class _TasksScreenState extends State<TasksScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: mainColor,
-      floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.white.withOpacity(0.85),
-          foregroundColor: mainColor,
-          shape: RoundedRectangleBorder(
-              side: BorderSide(color: mainColor),
-              borderRadius: BorderRadius.circular(30.0)),
-          onPressed: () {
-            showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                builder: (context) => const AddTask());
-          },
-          child: const Icon(Icons.add)),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const <Widget>[

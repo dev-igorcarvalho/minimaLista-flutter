@@ -5,6 +5,8 @@ import 'package:MinimaList/features/tasks/data/models/taskEntityImpl.dart';
 import 'package:flutter/foundation.dart';
 import 'package:simple_logger/simple_logger.dart';
 
+import '../../data/models/taskEntityImpl.dart';
+
 class TasksProvider with ChangeNotifier {
   // Singleton (factory)
   final _logger = SimpleLogger();
@@ -51,7 +53,12 @@ class TasksProvider with ChangeNotifier {
     return _taskList?.length;
   }
 
-  Future<void> addTask(TaskEntityImpl entity) async {
+  Future<void> addTask() async {
+    if (addTaskInput == null || addTaskInput.isEmpty) {
+      return;
+    }
+    final TaskEntityImpl entity = TaskEntityImpl(name: addTaskInput);
+    addTaskInput = "";
     _logger.info("Adding Task : ${entity.name}");
     await dataSource.insert(entity);
     await refreshTaskList();

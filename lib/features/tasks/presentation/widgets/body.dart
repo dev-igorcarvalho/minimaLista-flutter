@@ -13,14 +13,8 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
+        color: Colors.white,
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20.0),
-            topRight: Radius.circular(20.0),
-          ),
-        ),
         child: Provider.of<TasksProvider>(context).isLoading
             ? Loading()
             : TasksList(),

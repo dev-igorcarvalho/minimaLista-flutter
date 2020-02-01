@@ -1,10 +1,11 @@
 import 'package:MinimaList/features/tasks/presentation/providers/tasks.provider.dart';
-import 'package:MinimaList/features/tasks/presentation/screens/tasks.style.dart';
 import 'package:MinimaList/features/tasks/presentation/widgets/body.dart';
 import 'package:MinimaList/features/tasks/presentation/widgets/header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../widgets/addTask.dart';
 
 class TasksScreen extends StatefulWidget {
   static const ROUTE_NAME = "/";
@@ -22,13 +23,10 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: mainColor,
+      backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
-          Header(),
-          Body(),
-        ],
+        children: <Widget>[const Header(), const Body(), AddTask()],
       ),
     );
   }

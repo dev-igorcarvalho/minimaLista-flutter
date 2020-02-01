@@ -1,37 +1,34 @@
-import 'package:MinimaList/features/tasks/data/models/taskEntityImpl.dart';
-import 'package:MinimaList/features/tasks/presentation/providers/tasks.provider.dart';
 import 'package:MinimaList/features/tasks/presentation/screens/tasks.style.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/tasks.provider.dart';
+
 class AddTask extends StatelessWidget {
-  const AddTask({
+  AddTask({
     Key key,
   }) : super(key: key);
 
+  final TextEditingController _textEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    String _inputValue;
-
-    return SingleChildScrollView(
-        child: Container(
+    return Container(
       padding:
           EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       child: Container(
-        color: const Color(0xff757575),
-        child: Container(
-          padding:
-              const EdgeInsets.only(left: 40, top: 20, right: 50, bottom: 10),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20.0),
-              topRight: Radius.circular(20.0),
-            ),
-          ),
-          child: Column(
-            children: <Widget>[
-              TextField(
+        padding: const EdgeInsets.only(left: 40, top: 0, right: 35, bottom: 20),
+        color: Colors.white,
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: TextField(
+                controller: _textEditingController,
+                onSubmitted: (value) {
+                  Provider.of<TasksProvider>(context, listen: false).addTask();
+                  _textEditingController.clear();
+                },
                 decoration: InputDecoration(
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: mainColor),
@@ -42,33 +39,22 @@ class AddTask extends StatelessWidget {
                 autofocus: true,
                 textAlign: TextAlign.center,
                 onChanged: (newText) {
-                  _inputValue = newText;
+                  Provider.of<TasksProvider>(context, listen: false)
+                      .addTaskInput = newText;
                 },
               ),
-              const SizedBox(height: 20),
-              FlatButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50.0)),
-                color: Colors.white,
-                onPressed: () {
-                  if (_inputValue != null) {
-                    Provider.of<TasksProvider>(context, listen: false)
-                        .addTask(TaskEntityImpl(name: _inputValue));
-                  }
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  'Adicionar',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: mainColor,
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+            IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () {
+                Provider.of<TasksProvider>(context, listen: false).addTask();
+                _textEditingController.clear();
+                FocusScope.of(context).unfocus();
+              },
+            )
+          ],
         ),
       ),
-    ));
+    );
   }
 }

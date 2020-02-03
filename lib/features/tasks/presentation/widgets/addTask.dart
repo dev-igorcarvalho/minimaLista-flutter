@@ -2,8 +2,8 @@ import 'package:MinimaList/features/tasks/presentation/providers/tasks.store.dar
 import 'package:MinimaList/features/tasks/presentation/screens/tasks.style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
+import '../../../../core/locators/service.locator.dart';
 import '../screens/tasks.style.dart';
 
 class AddTask extends StatelessWidget {
@@ -28,7 +28,7 @@ class AddTask extends StatelessWidget {
               child: TextField(
                 controller: _textEditingController,
                 onSubmitted: (value) {
-                  Provider.of<TasksStore>(context, listen: false).addTask();
+                  sl<TasksStore>().addTask();
                   _textEditingController.clear();
                 },
                 decoration: InputDecoration(
@@ -41,8 +41,7 @@ class AddTask extends StatelessWidget {
                 autofocus: false,
                 textAlign: TextAlign.center,
                 onChanged: (newText) {
-                  Provider.of<TasksStore>(context, listen: false).addTaskInput =
-                      newText;
+                  sl<TasksStore>().addTaskInput = newText;
                 },
               ),
             ),
@@ -50,7 +49,7 @@ class AddTask extends StatelessWidget {
               icon: Icon(Icons.add),
               color: mainColor,
               onPressed: () {
-                Provider.of<TasksStore>(context, listen: false).addTask();
+                sl<TasksStore>().addTask();
                 _textEditingController.clear();
                 FocusScope.of(context).unfocus();
               },

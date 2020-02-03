@@ -4,8 +4,8 @@ import 'package:MinimaList/features/tasks/presentation/widgets/body.dart';
 import 'package:MinimaList/features/tasks/presentation/widgets/header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
+import '../../../../core/locators/service.locator.dart';
 import '../widgets/addTask.dart';
 
 class TasksScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    Provider.of<TasksStore>(context, listen: false).refreshTaskList();
+    sl<TasksStore>().refreshTaskList();
   }
 
   @override

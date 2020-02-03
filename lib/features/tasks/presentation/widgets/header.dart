@@ -1,7 +1,7 @@
+import 'package:MinimaList/core/locators/service.locator.dart';
 import 'package:MinimaList/features/tasks/presentation/providers/tasks.store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:provider/provider.dart';
 
 import '../screens/tasks.style.dart';
 
@@ -21,7 +21,7 @@ class Header extends StatelessWidget {
           Observer(
             name: "Header.computed.totalOfTasks",
             builder: (_) => Text(
-              '${Provider.of<TasksStore>(context).totalOfTasks} Itens',
+              '${sl<TasksStore>().totalOfTasks} Itens',
               style: const TextStyle(
                 color: mainColor,
                 fontSize: 18,

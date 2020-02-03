@@ -2,7 +2,8 @@ import 'package:MinimaList/features/tasks/presentation/providers/tasks.store.dar
 import 'package:MinimaList/features/tasks/presentation/widgets/taskItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:provider/provider.dart';
+
+import '../../../../core/locators/service.locator.dart';
 
 class TasksList extends StatelessWidget {
   @override
@@ -11,10 +12,10 @@ class TasksList extends StatelessWidget {
       builder: (_) => ListView.builder(
         itemBuilder: (context, index) {
           return TaskItem(
-            task: Provider.of<TasksStore>(context).taskList[index],
+            task: sl<TasksStore>().taskList[index],
           );
         },
-        itemCount: Provider.of<TasksStore>(context).taskList.length,
+        itemCount: sl<TasksStore>().taskList.length,
       ),
     );
   }

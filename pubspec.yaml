@@ -28,6 +28,9 @@ dependencies:
   simple_logger: ^1.6.0+1
   #state manager
   provider: ^4.0.2
+  mobx: ^1.0.0
+  flutter_mobx: ^1.0.0
+
   #dependency injection
   get_it: ^3.1.0
   #Implementaçao Dart da classe Optional<> do Java
@@ -54,6 +57,9 @@ dev_dependencies:
 
   #auto generate fromJson and toJson
   json_serializable: ^3.2.5
+
+
+  mobx_codegen: ^1.0.0
 
 
 # For information on the generic Dart part of this file, see the

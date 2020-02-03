@@ -1,5 +1,5 @@
 import 'package:MinimaList/features/tasks/data/models/taskEntityImpl.dart';
-import 'package:MinimaList/features/tasks/presentation/providers/tasks.provider.dart';
+import 'package:MinimaList/features/tasks/presentation/providers/tasks.store.dart';
 import 'package:MinimaList/features/tasks/presentation/widgets/checkboxOrTrash.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,8 +12,8 @@ class TaskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-        onLongPress: () {
-          Provider.of<TasksProvider>(context, listen: false).changeListAction();
+        onTap: () {
+          Provider.of<TasksStore>(context, listen: false).changeListAction();
         },
         title: Text(
           task.name,

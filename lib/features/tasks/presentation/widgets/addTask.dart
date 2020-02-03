@@ -1,9 +1,10 @@
+import 'package:MinimaList/features/tasks/presentation/providers/tasks.store.dart';
 import 'package:MinimaList/features/tasks/presentation/screens/tasks.style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/tasks.provider.dart';
+import '../screens/tasks.style.dart';
 
 class AddTask extends StatelessWidget {
   AddTask({
@@ -15,6 +16,7 @@ class AddTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.white,
       padding:
           EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       child: Container(
@@ -26,7 +28,7 @@ class AddTask extends StatelessWidget {
               child: TextField(
                 controller: _textEditingController,
                 onSubmitted: (value) {
-                  Provider.of<TasksProvider>(context, listen: false).addTask();
+                  Provider.of<TasksStore>(context, listen: false).addTask();
                   _textEditingController.clear();
                 },
                 decoration: InputDecoration(
@@ -36,18 +38,19 @@ class AddTask extends StatelessWidget {
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: mainColor)),
                 ),
-                autofocus: true,
+                autofocus: false,
                 textAlign: TextAlign.center,
                 onChanged: (newText) {
-                  Provider.of<TasksProvider>(context, listen: false)
-                      .addTaskInput = newText;
+                  Provider.of<TasksStore>(context, listen: false).addTaskInput =
+                      newText;
                 },
               ),
             ),
             IconButton(
               icon: Icon(Icons.add),
+              color: mainColor,
               onPressed: () {
-                Provider.of<TasksProvider>(context, listen: false).addTask();
+                Provider.of<TasksStore>(context, listen: false).addTask();
                 _textEditingController.clear();
                 FocusScope.of(context).unfocus();
               },

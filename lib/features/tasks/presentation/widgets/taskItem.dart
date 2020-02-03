@@ -12,7 +12,7 @@ class TaskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-        onTap: () {
+        onLongPress: () {
           Provider.of<TasksStore>(context, listen: false).changeListAction();
         },
         title: Text(

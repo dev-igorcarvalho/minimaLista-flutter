@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:mobx/mobx.dart';
 import 'package:simple_logger/simple_logger.dart';
 
@@ -21,7 +23,7 @@ abstract class _TasksStore with Store {
   final TaskDatasourceImpl dataSource;
 
   @observable
-  ObservableList<TaskEntityImpl> taskList;
+  ObservableList<TaskEntityImpl> _taskList;
 
   @observable
   bool _isLoading = false;
@@ -39,14 +41,14 @@ abstract class _TasksStore with Store {
   bool get isLoading => _isLoading;
 
   @computed
-  int get totalOfTasks => taskList?.length;
+  int get totalOfTasks => _taskList?.length;
 
   /// Retorna copia imutavel da lista por segurança
-//  @computed
-//  ObservableList<TaskEntityImpl> get taskList {
-//    final list = UnmodifiableListView<TaskEntityImpl>(_taskList);
-//    return ObservableList.of(list);
-//  }
+  @computed
+  ObservableList<TaskEntityImpl> get taskList {
+    final list = UnmodifiableListView<TaskEntityImpl>(_taskList);
+    return ObservableList.of(list);
+  }
 
   @action
   void changeListAction() {
@@ -57,7 +59,7 @@ abstract class _TasksStore with Store {
   Future<void> refreshTaskList() async {
     _isLoading = true;
     final List<TaskEntityImpl> list = await fetchTaskList();
-    taskList = ObservableList.of(list);
+    _taskList = ObservableList.of(list);
     _isLoading = false;
   }
 
@@ -81,8 +83,7 @@ abstract class _TasksStore with Store {
 
   @action
   Future<void> completeTask(TaskEntityImpl entity) async {
-    //TODO: descobrir o pq nao da update na tela
-    _logger.info("Completed Task : ${entity.name}");
+    _logger.info("${entity.name} - Complete: ${entity.completed}");
     entity.changeStatus();
     await dataSource.update(entity);
     await refreshTaskList();

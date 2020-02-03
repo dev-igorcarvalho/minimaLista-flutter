@@ -19,6 +19,7 @@ class Header extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Observer(
+            name: "Header.computed.totalOfTasks",
             builder: (_) => Text(
               '${Provider.of<TasksStore>(context).totalOfTasks} Itens',
               style: const TextStyle(

@@ -16,9 +16,8 @@ class TasksScreen extends StatefulWidget {
 
 class _TasksScreenState extends State<TasksScreen> {
   @override
-  void initState() {
-    super.initState();
-//    Provider.of<TasksProvider>(context, listen: false).refreshTaskList();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     Provider.of<TasksStore>(context, listen: false).refreshTaskList();
   }
 

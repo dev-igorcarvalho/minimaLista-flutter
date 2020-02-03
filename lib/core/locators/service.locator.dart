@@ -1,5 +1,4 @@
 import 'package:MinimaList/features/tasks/data/datasource/taskDatasourceImpl.dart';
-import 'package:MinimaList/features/tasks/presentation/providers/tasks.provider.dart';
 import 'package:MinimaList/features/tasks/presentation/providers/tasks.store.dart';
 import 'package:get_it/get_it.dart';
 
@@ -17,7 +16,6 @@ void initServiceLocator() {
 //responsavel pela injecao dos features
 void _initModules() {
   sl.registerFactory(() => TaskDatasourceImpl());
-  sl.registerLazySingleton(() => TasksProvider(sl<TaskDatasourceImpl>()));
   sl.registerLazySingleton(() => TasksStore(sl<TaskDatasourceImpl>()));
 }
 

@@ -1,5 +1,4 @@
 import 'package:MinimaList/features/tasks/data/models/taskEntityImpl.dart';
-import 'package:MinimaList/features/tasks/presentation/providers/tasks.provider.dart';
 import 'package:MinimaList/features/tasks/presentation/providers/tasks.store.dart';
 import 'package:MinimaList/features/tasks/presentation/screens/tasks.style.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +19,7 @@ class CheckBoxOrTrash extends StatelessWidget {
                   activeColor: mainColor,
                   value: task.completed,
                   onChanged: (value) {
-                    Provider.of<TasksProvider>(context, listen: false)
+                    Provider.of<TasksStore>(context, listen: false)
                         .completeTask(task);
                   },
                 )

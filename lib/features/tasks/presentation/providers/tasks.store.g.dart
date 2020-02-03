@@ -26,22 +26,28 @@ mixin _$TasksStore on _TasksStore, Store {
   int get totalOfTasks =>
       (_$totalOfTasksComputed ??= Computed<int>(() => super.totalOfTasks))
           .value;
-
-  final _$taskListAtom = Atom(name: '_TasksStore.taskList');
+  Computed<ObservableList<TaskEntityImpl>> _$taskListComputed;
 
   @override
-  ObservableList<TaskEntityImpl> get taskList {
-    _$taskListAtom.context.enforceReadPolicy(_$taskListAtom);
-    _$taskListAtom.reportObserved();
-    return super.taskList;
+  ObservableList<TaskEntityImpl> get taskList => (_$taskListComputed ??=
+          Computed<ObservableList<TaskEntityImpl>>(() => super.taskList))
+      .value;
+
+  final _$_taskListAtom = Atom(name: '_TasksStore._taskList');
+
+  @override
+  ObservableList<TaskEntityImpl> get _taskList {
+    _$_taskListAtom.context.enforceReadPolicy(_$_taskListAtom);
+    _$_taskListAtom.reportObserved();
+    return super._taskList;
   }
 
   @override
-  set taskList(ObservableList<TaskEntityImpl> value) {
-    _$taskListAtom.context.conditionallyRunInAction(() {
-      super.taskList = value;
-      _$taskListAtom.reportChanged();
-    }, _$taskListAtom, name: '${_$taskListAtom.name}_set');
+  set _taskList(ObservableList<TaskEntityImpl> value) {
+    _$_taskListAtom.context.conditionallyRunInAction(() {
+      super._taskList = value;
+      _$_taskListAtom.reportChanged();
+    }, _$_taskListAtom, name: '${_$_taskListAtom.name}_set');
   }
 
   final _$_isLoadingAtom = Atom(name: '_TasksStore._isLoading');
